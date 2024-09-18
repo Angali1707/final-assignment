@@ -1,0 +1,288 @@
+body {
+    font-family: "Poetsen One", sans-serif;
+    background-color: #d5e9ed;
+    box-sizing: border-box;
+}
+
+/* CSS for the navigation menu */
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensure the items are spaced out */
+    background-color: #58def5;
+    padding: 5px;
+    border-radius: 90px;
+    margin: 30px;
+    border:groove rgb(249, 51, 190) 2px;
+    flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+    transition: border;
+}
+
+
+.logo img {
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 130px;
+    margin: 10px 10px 10px 30px;
+    transition: transform 0.3s, filter 0.3s; /* Add transition for smooth effect */
+}
+
+.logo img:hover {
+    border: 5px solid rgb(249, 51, 190);
+    transform: scale(1.1); /* Scale up the image slightly */
+    filter: brightness(1.2); /* Increase brightness */
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin-left: auto; /* Automatically push links to the right */
+    padding: 0;
+}
+
+.nav-links li {
+    margin-right: 100px;
+    font-size: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    padding: 8px 15px;
+    transition: background-color 0.1s;
+}
+
+/* Add styling for the active link */
+
+.nav-links .hover-effect:hover {
+    background-color: rgb(249, 51, 190);
+    border-radius: 50px;
+    font-size: 35px;
+}
+
+.nav-links a.active {
+    background-color: rgb(249, 51, 190);
+    border-radius: 50px;
+    text-decoration: underline;
+}
+
+
+/* Styling the title and text */
+
+h1 {
+    font-size: 100px;
+    padding: 15px;
+    color: transparent;
+    -webkit-text-stroke: 2px rgb(246, 16, 177);   /* add stroke to text */
+    position: relative;
+    text-align: center;
+}
+
+h1:hover {
+    -webkit-text-stroke: 2px rgb(0, 0, 0);
+    transition: 0.5s;
+    transform: scale(1.5);
+}
+
+.image-intro{
+    max-width: 1000px;
+    text-align: justify;
+    margin: 100px 406px;    /* top,bottom   left,right */
+    font-size: 25px;
+    border: 6px solid #58def5;
+    border-radius: 90px;
+    padding: 40px;
+    background-color: #cef1f4;
+}
+
+
+
+
+/* CSS for the images */
+
+.gallery {
+    position: relative;
+    min-height: 90vh;   /* 90% of viewport height */
+    max-width: 2000px;
+}
+
+.gallery .image-container {
+    display: flex;   /* fill available free space */
+    flex-wrap: wrap;
+    gap: 80px;   /* column and row */
+    justify-content: center;
+
+}
+
+.gallery .image-container .image {
+    height: 250px;
+    width: 350px;
+    border: 10px solid #14d0f1;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .1);   /* no horizontal offset: shadow behind element, vertical offset: shadow below, blur effect, 10% opacity */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.gallery .image-container .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;   /* maintain aspect ratio to fill the container */
+    transition: .2s linear;
+}
+
+.gallery .image-container .image:hover img {
+    transform: scale(1.3);
+}
+
+.gallery .popup-image {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    background: rgba(31, 31, 31, 0.9);
+    height: 100%;
+    width: 100%;
+    z-index: 100;   /* positions above other elements with lower z-index values */
+    display: none;
+}
+
+.gallery .popup-image span {
+    position: absolute;    /* postitions it relative to its closest positioned ancestor */
+    top: 0;
+    right: 10px;
+    font-size: 60px;
+    font-weight: bolder;
+    color: #fff;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.gallery .popup-image img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 7px solid #68c6f2;
+    border-radius: 300px;
+    max-width: 90%;     /* Set maximum width to 90% of the viewport width */
+    max-height: 90vh;     /* Set maximum height to 90% of the viewport height */
+    object-fit: contain;    /* Maintain aspect ratio while fitting into the container */
+}
+
+.gallery .popup-image .popup-text {
+    font-family: "Redressed", cursive;
+    font-style: italic;
+    font-weight: 400;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);   /* horizontally center relative to own width */
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 30px;
+    border: 3px solid #68c6f2;
+}
+
+
+/* CSS for the videos */
+
+.video-intro{
+    max-width: 1090px;
+    text-align: center;
+    font-size: 25px;
+    border: 6px solid #58def5;
+    border-radius: 90px;
+    padding: 40px;
+    background-color: #cef1f4;
+    margin: 0 0 90px 406px;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;   /* Adds space between videos */
+    margin-left: 40px;
+}
+
+.video-container video {
+    border-radius: 70px;
+    border: 6px solid #14d0f1;
+    max-width: 400px;   /* Adjust as needed */
+    height: auto;
+    flex: 1 1 21%;   /* responsive: flex-grow, flex-shrink, flex-basis: initial size */
+    transition: .2s linear;
+}
+
+.video-container video:hover{
+    transform: scale(1.1);
+    border-color: rgb(246, 16, 177);
+}
+
+
+
+
+/* Media Queries for responsiveness for the navigation menu */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .logo img {
+        height: 100px;
+        width: 100px;
+    }
+
+    nav {
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 80px;
+        margin: 10px;
+        width: 640px;
+    }
+
+    nav:hover {
+        border: 6px solid rgb(249, 51, 190);
+    }
+
+    .container .popup-image img {
+        width: 75%;
+    }
+
+    h1:hover {
+        transform: scale(1.1);
+    }
+
+    .image-intro{
+        width: 600px;
+        margin-left: 10px;
+    }
+
+    .video-intro{
+        width: 600px;
+        margin: 70px 0 70px 0; /* Top, Right, Bottom, Left */
+
+    }
+
+    .video-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .video-container video {
+        width: 80%;
+        height: auto;
+        flex: 1 1 auto; /* Reset flex properties for stacking */
+    }
+}
